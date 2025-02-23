@@ -188,7 +188,11 @@ print(fib_matrix(10)) # Output: 55
 
 ### **3.5 Binet’s Formula (Constant $O(1)$)**
 
-This method directly computes Fibonacci numbers using the Golden Ratio (Phi). While computationally $O(1)$, floating-point precision errors make it unreliable for large $n$.
+This method directly computes Fibonacci numbers using the Golden Ratio (Phi). While computationally $O(1)$, floating-point precision errors make it unreliable for large $n$. Based on the formula:
+
+$$
+F(n) = \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}
+$$
 
 - Uses the closed-form equation derived from the Golden Ratio.
 - Extremely fast but suffers from precision errors for large $n$.
