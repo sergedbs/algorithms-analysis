@@ -5,6 +5,7 @@
 This study explores and compares different algorithms for computing the **Fibonacci sequence**. The goal is to analyze the **efficiency, scalability, and execution time** of multiple approaches ranging from naïve recursion to matrix exponentiation.
 
 The Fibonacci sequence is defined as:
+
 $$
 F(n) =
 \begin{cases}
@@ -36,34 +37,34 @@ Various computational methods are implemented and evaluated to determine their s
 
 ## **🛠 Implemented Fibonacci Methods**
 
-### **1️⃣ Naïve Recursive Approach** *(Exponential $O(2^n)$)*
+### **1️⃣ Naïve Recursive Approach** *(Exponential $`O(2^n)`$)*
 
 - Implements the basic recursive definition of Fibonacci.
 - **Highly inefficient** for large $n$ due to redundant computations.
 
-### **2️⃣ Recursive with Memoization** *(Top-Down DP, $O(n)$)*
+### **2️⃣ Recursive with Memoization** *(Top-Down DP, $`O(n)`$)*
 
 - Uses a **cache (dictionary)** to store previously computed values.
 - **Reduces redundant calculations** significantly.
 - **Linear time complexity** $O(n)$.
 
-### **3️⃣ Iterative Dynamic Programming** *(Bottom-Up DP, $O(n)$)*
+### **3️⃣ Iterative Dynamic Programming** *(Bottom-Up DP, $`O(n)`$)*
 
 - Builds the Fibonacci sequence **iteratively** in an array.
 - Eliminates recursion overhead but requires **$O(n)$ space**.
 
-### **4️⃣ Matrix Exponentiation** *(Logarithmic $O(\log n)$)*
+### **4️⃣ Matrix Exponentiation** *(Logarithmic $`O(\log n)`$)*
 
 - Uses **matrix multiplication** to compute Fibonacci numbers efficiently.
 - **Best method for very large values of $n$**.
 - **Logarithmic time complexity** $O(\log n)$.
 
-### **5️⃣ Binet’s Formula** *(Constant $O(1)$)*
+### **5️⃣ Binet’s Formula** *(Constant $`O(1)`$)*
 
 - Uses the **Golden Ratio (Phi)** for a closed-form solution.
 - **Extremely fast but unreliable** for large $n$ due to floating-point precision errors.
 
-### **6️⃣ Optimized Iterative Approach** *(Linear $O(n)$, Constant Space $O(1)$)*
+### **6️⃣ Optimized Iterative Approach** *(Linear $`O(n)`$, Constant Space $`O(1)`$)*
 
 - **Stores only the last two computed values**, reducing memory usage.
 - **Most memory-efficient iterative approach**.
