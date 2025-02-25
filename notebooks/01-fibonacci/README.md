@@ -64,22 +64,32 @@ Various computational methods are implemented and evaluated to determine their s
 - Uses the **Golden Ratio (Phi)** for a closed-form solution.
 - **Extremely fast but unreliable** for large $n$ due to floating-point precision errors.
 
-### **6️⃣ Optimized Iterative Approach** *(Linear $`O(n)`$, Constant Space $`O(1)`$)*
+### **6️⃣ Binet's Formula with Decimal Precision** *(Constant $`O(1)`$)*
+
+- Uses the `decimal` module for higher precision arithmetic.
+- **More reliable for large values of $n$**.
+
+### **7️⃣ Optimized Iterative Approach** *(Linear $`O(n)`$, Constant Space $`O(1)`$)*
 
 - **Stores only the last two computed values**, reducing memory usage.
 - **Most memory-efficient iterative approach**.
+
+### **8️⃣ Fast Doubling Method** *(Logarithmic $`O(\log n)`$)*
+
+- Utilizes a **fast doubling technique** to compute Fibonacci numbers.
+- **Achieves logarithmic time complexity** $O(\log n)$.
 
 ## **🔬 Experimental Setup**
 
 ### **📌 Input Data**
 
-- **Small Inputs**: $n = \{5, 7, 10, 12, 15, 18, 20, 25, 30, 50, 100\}$
-- **Large Inputs**: $n = \{200, 500, 700, 1000, 3000, 5000, 7000, 10000, 15000, 20000\}$
+- **Small Inputs**: $n = \{1, 2, 3, \ldots, 198\}$
+- **Large Inputs**: $n = \{200, 300, 400, \ldots, 20000\}$
 
 ### **📌 Performance Measurement**
 
 - **Each algorithm** is executed **multiple times** for each input size.
-- **Execution time** is recorded using Python’s `timeit` module.
+- **Execution time** is recorded using Python’s `time` module.
 - **Results are stored in a CSV file** (`fibonacci_results.csv`).
 - **Graphs are generated** to visualize performance trends.
 
@@ -92,16 +102,17 @@ This study provides valuable insights into **choosing the right algorithm** for 
 - **Matrix Exponentiation** is the **fastest method for very large values of $n$**.
 - **Binet’s Formula** is **only reliable for small $n$** due to floating-point errors.
 - **Optimized Iterative $O(1)$ Space Method** provides a **good balance between efficiency and memory usage**.
+- **Fast Doubling Method** is highly efficient for large $n$.
 
 ### **🚀 Best Algorithm for Different Use Cases**
 
-| **Use Case**                   | **Recommended Algorithm**           |
-|--------------------------------|-------------------------------------|
-| **Small $n \leq 30$**          | Recursive (for learning purposes)   |
-| **Moderate $n < 10^5$**        | Memoization (Top-Down DP)           |
-| **Large $n < 10^6$**           | Iterative DP or Optimized Iterative |
-| **Very Large $n > 10^6$**      | Matrix Exponentiation               |
-| **Quick Approximation Needed** | Binet’s Formula (for small $n$)     |
+| **Use Case**                   | **Recommended Algorithm**              |
+|--------------------------------|----------------------------------------|
+| **Small $n \leq 30$**          | Recursive (for learning purposes)      |
+| **Moderate $n < 10^5$**        | Memoization (Top-Down DP)              |
+| **Large $n < 10^6$**           | Iterative DP or Optimized Iterative    |
+| **Very Large $n > 10^6$**      | Matrix Exponentiation or Fast Doubling |
+| **Quick Approximation Needed** | Binet’s Formula (for small $n$)        |
 
 ---
 
