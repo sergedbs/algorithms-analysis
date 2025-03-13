@@ -114,7 +114,8 @@ git clone https://github.com/sergedbs/algorithms-analysis.git
 cd algorithms-analysis
 ```
 
-### **🛠 Install Dependencies** _(if not already installed)_
+### **🛠 Install Dependencies** *(if not already installed)*
+
 The dependencies can be installed using either method:
 
 ```bash
@@ -148,6 +149,6 @@ jupyter notebook 01-fibonacci.ipynb
 └── 📄 README.md                   # This file
 ```
 
-> This study is part of the _**Empirical Analysis of Algorithms**_ repository. The complete source code and Jupyter notebooks are available on GitHub: [Empirical Analysis of Algorithms](https://github.com/sergedbs/algorithms-analysis).
+> This study is part of the ***Empirical Analysis of Algorithms*** repository. The complete source code and Jupyter notebooks are available on GitHub: [Empirical Analysis of Algorithms](https://github.com/sergedbs/algorithms-analysis).
 
 ---

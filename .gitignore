@@ -84,6 +84,9 @@ gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 .gradletasknamecache
-**/.ipynb_checkpoints
+.ipynb_checkpoints/
 .pdm-python
 .pdm-build/
+.DS_Store
+*.pyc
+__pycache__/

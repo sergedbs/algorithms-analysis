@@ -22,6 +22,7 @@ cd algorithms-analysis
 ```
 
 ### **🛠 Install Dependencies**
+
 The dependencies can be installed using either method:
 
 ```bash
@@ -38,13 +39,13 @@ pip install -e .
 
 Implements and compares 8 different methods for computing Fibonacci numbers:
 
- - Naïve recursive approach
- - Memoization
- - Dynamic programming
- - Matrix exponentiation
- - Binet's formula (and decimal precision variant)
- - Space-optimized iterative solution
- - Fast doubling method
+- Naïve recursive approach
+- Memoization
+- Dynamic programming
+- Matrix exponentiation
+- Binet's formula (and decimal precision variant)
+- Space-optimized iterative solution
+- Fast doubling method
 
 ```bash
 cd notebooks/01-fibonacci
@@ -68,6 +69,7 @@ jupyter notebook 02-sorting.ipynb
 ## **📈 Results**
 
 Each notebook generates:
+
 - CSV files with performance measurements
 - Visualizations in various formats (PNG, PDF)
 - Detailed analysis of algorithm behavior
@@ -91,4 +93,5 @@ Each notebook generates:
 ```
 
 ## **License**
+
 The source code of this repository is licensed under the MIT License. See the [`LICENSE`](LICENSE) for more details.
