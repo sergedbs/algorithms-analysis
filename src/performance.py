@@ -16,6 +16,27 @@ def test_algorithm_performance(
     trials: int = 10,
     show_progress: bool = True
 ) -> pd.DataFrame:
+    """
+    Test the performance of multiple algorithms with various input values.
+
+    This function evaluates the execution time of multiple algorithms against a set
+    of test values, collecting results in a DataFrame for analysis. It handles errors
+    and overflow conditions gracefully.
+
+    :param algorithms: Dictionary mapping algorithm names to their corresponding functions
+    :type algorithms: Dict[str, Callable[[T], R]]
+    :param test_values: List of input values to test the algorithms with
+    :type test_values: List[T]
+    :param param_name: Name of the parameter being tested (used in the results DataFrame)
+    :type param_name: str
+    :param trials: Number of trials to run for each algorithm and input value
+    :type trials: int
+    :param show_progress: Whether to display a progress bar during execution
+    :type show_progress: bool
+
+    :return: DataFrame containing execution times for each algorithm and input value
+    :rtype: pd.DataFrame
+    """
 
     results = []
 
