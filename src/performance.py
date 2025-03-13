@@ -1,4 +1,3 @@
-# src/performance.py
 import gc
 import pandas as pd
 from tqdm.notebook import tqdm
@@ -40,7 +39,6 @@ def test_algorithm_performance(
 
     results = []
 
-    # Use progress bar if requested
     iterator = tqdm(test_values, desc=f"Testing {param_name} values", unit=param_name.lower()) if show_progress else test_values
 
     for val in iterator:
