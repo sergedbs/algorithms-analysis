@@ -3,7 +3,23 @@ import numpy as np
 
 # Measure the execution time of a method for a given input
 def measure_execution_time(func, n, trials=10, warmup=3):
+    """
+    Measure the execution time of a given function for a specified input size.
 
+    :param func: The function to be measured.
+    :type func: callable
+    :param n: The input size for the function.
+    :type n: int
+    :param trials: The number of trials to run for measuring the execution time. Default is 10.
+    :type trials: int, optional
+    :param warmup: The number of warmup runs before the actual measurement. Default is 3.
+    :type warmup: int, optional
+
+    :return: A tuple containing the result of the function and the median execution time in nanoseconds.
+             If an error occurs, returns a tuple with an error message and -1.
+             If the function result indicates an overflow, returns "OVERFLOW" and -1.
+    :rtype: tuple
+    """
     try:
         result = func(n)
         for _ in range(warmup):
