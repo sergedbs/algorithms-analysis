@@ -9,7 +9,7 @@ This repository contains implementations and empirical analyses of various algor
 
 ## **🛠️ Getting Started**
 
-### **Prerequisites**
+### **📋 Prerequisites**
 
 - Python 3.7 or higher
 - Jupyter Notebook environment

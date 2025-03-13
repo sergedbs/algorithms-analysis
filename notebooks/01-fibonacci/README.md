@@ -79,7 +79,7 @@ Various computational methods are implemented and evaluated to determine their s
 
 - **Each algorithm** is executed **multiple times** for each input size.
 - **Execution time** is recorded using Python’s `time` module.
-- **Results are stored in a CSV file** (`fibonacci_results.csv`).
+- **Results are stored in a CSV file** (`results.csv`).
 - **Graphs are generated** to visualize performance trends.
 
 ## **📌 Conclusion**
@@ -147,5 +147,7 @@ jupyter notebook 01-fibonacci.ipynb
 │   └── 📂 plots/                  # Graphs for performance analysis
 └── 📄 README.md                   # This file
 ```
+
+> This study is part of the _**Empirical Analysis of Algorithms**_ repository. The complete source code and Jupyter notebooks are available on GitHub: [Empirical Analysis of Algorithms](https://github.com/sergedbs/algorithms-analysis).
 
 ---
