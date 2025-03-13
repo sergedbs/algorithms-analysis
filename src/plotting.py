@@ -1,6 +1,6 @@
 # Path: src/plotting.py
 # Description: Module for plotting performance graphs for algorithm benchmarks.
-# Reference: Documentation generated and code optimized using Claude 3.7 Sonnet.
+# Acknowledgment: Documentation generated and code optimized using Claude 3.7 Sonnet.
 
 import os
 import pandas as pd

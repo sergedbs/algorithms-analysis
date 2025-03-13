@@ -24,17 +24,6 @@ Various computational methods are implemented and evaluated to determine their s
 - Identify the most efficient method for varying input sizes.
 - Visualize execution time trends through graphs.
 
-## **📂 Project Structure**
-
-```
-📂 01-fibonacci/
-│── 📜 README.md                   # This document
-│── 📜 01-fibonacci.ipynb          # Jupyter Notebook implementation
-│── 📂 result/                     # Performance results and visualizations
-│   ├── 📊 fibonacci_results.csv   # Execution time results
-│   ├── 📂 plots/                  # Graphs for performance analysis
-```
-
 ## **🛠 Implemented Fibonacci Methods**
 
 ### **1️⃣ Naïve Recursive Approach** *(Exponential $`O(2^n)`$)*
@@ -122,18 +111,41 @@ This study provides valuable insights into **choosing the right algorithm** for 
 
 ```bash
 git clone https://github.com/sergedbs/algorithms-analysis.git
-cd algorithms-analysis/notebooks/01-fibonacci
+cd algorithms-analysis
+```
+
+### **🛠 Install Dependencies** _(if not already installed)_
+The dependencies can be installed using either method:
+
+```bash
+# Method 1: Using pip with requirements.txt
+pip install -r requirements.txt
+
+# Method 2: Install as a package (development mode)
+pip install -e .
 ```
 
 ### **▶️ Run the Jupyter Notebook**
 
 ```bash
+cd notebooks/01-fibonacci
 jupyter notebook 01-fibonacci.ipynb
 ```
 
 ### **📊 View Results**
 
-- Check the **CSV file**: `result/fibonacci_results.csv`
+- Check the **CSV file**: `result/results.csv`
 - View **performance graphs**: `result/plots/`
+
+## **📂 Project Structure**
+
+```plaintext
+📂 01-fibonacci/
+│── 📓 01-fibonacci.ipynb          # Jupyter Notebook implementation
+│── 📂 result/                     # Performance results and visualizations
+│   ├── 📊 results.csv             # Execution time results
+│   └── 📂 plots/                  # Graphs for performance analysis
+└── 📄 README.md                   # This file
+```
 
 ---
