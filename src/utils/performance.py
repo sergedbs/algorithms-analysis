@@ -1,9 +1,9 @@
 import gc
 import pandas as pd
 from tqdm.notebook import tqdm
-from typing import Dict, List, Callable, Any, Union, TypeVar
+from typing import Dict, List, Callable, TypeVar
 
-from src.timing import measure_execution_time
+from src.utils.timing import measure_execution_time
 
 T = TypeVar('T')  # Type for function input
 R = TypeVar('R')  # Type for function output

@@ -49,7 +49,7 @@ Implements and compares 8 different methods for computing Fibonacci numbers:
 
 ```bash
 cd notebooks/01-fibonacci
-jupyter notebook 01-fibonacci.ipynb
+jupyter notebook fibonacci-analysis.ipynb
 ```
 
 ### [**2. Sorting Algorithms Analysis**](notebooks/02-sorting)
@@ -63,7 +63,7 @@ Implements and compares the performance of classic sorting algorithms:
 
 ```bash
 cd notebooks/02-sorting
-jupyter notebook 02-sorting.ipynb
+jupyter notebook sorting-analysis.ipynb
 ```
 
 ## **📈 Results**

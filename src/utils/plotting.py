@@ -9,7 +9,7 @@ from typing import List, Optional, Dict, Any, Tuple
 
 from matplotlib.figure import Figure
 
-from src.utils import create_directory
+from src.utils.utils import create_directory
 
 
 def plot_performance_graphs(

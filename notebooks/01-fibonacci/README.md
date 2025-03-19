@@ -130,7 +130,7 @@ pip install -e .
 
 ```bash
 cd notebooks/01-fibonacci
-jupyter notebook 01-fibonacci.ipynb
+jupyter notebook fibonacci-analysis.ipynb
 ```
 
 ### **📊 View Results**
