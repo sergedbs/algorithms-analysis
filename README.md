@@ -92,6 +92,6 @@ Each notebook generates:
 └── 📄 README.md                # This file
 ```
 
-## **License**
+## **📝 License**
 
 The source code of this repository is licensed under the MIT License. See the [`LICENSE`](LICENSE) for more details.

@@ -30,7 +30,8 @@ def plot_performance_graphs(
     figsize: tuple = (12, 8),
     grid_style: Optional[Dict[str, Any]] = None,
     display_plots: bool = False,
-    return_figures: bool = False
+    return_figures: bool = False,
+    plot_types: Optional[List[str]] = None
 ) -> list[Figure] | None:
     """
     Plot performance graphs for algorithm benchmarks.
@@ -53,6 +54,8 @@ def plot_performance_graphs(
     :param grid_style: Dictionary with grid style parameters (default: uses predefined style)
     :param display_plots: Whether to display plots in the notebook/output (default: False)
     :param return_figures: Whether to return figure objects (default: False)
+    :param plot_types: Optional list of plot types to generate
+                       Options: "small", "large", "linear", "log"
 
     :return: List of paths to the saved plot files or tuple of (paths, figures) if return_figures is True
     """
@@ -69,45 +72,75 @@ def plot_performance_graphs(
     all_algorithms = all_algorithms or [col for col in df.columns if col != param_name]
     fast_algorithms = fast_algorithms or all_algorithms
 
+    # Determine which plots to generate
+    if plot_types is not None:
+        # Use explicitly specified plot types
+        generate_small = "small" in plot_types
+        generate_large = "large" in plot_types
+        generate_linear = "linear" in plot_types
+        generate_log = "log" in plot_types
+    else:
+        # Default behavior: generate all plots
+        generate_small = True
+        generate_large = True
+        generate_linear = True
+        generate_log = False
+
     # Generate and save all plots
     saved_files = []
     all_figures = []
 
     # Small input plot
-    small_result = _create_small_input_plot(
-        df, path, param_name, time_unit, all_algorithms,
-        title_prefix, filename_prefix, small_threshold,
-        convert_to_seconds, rolling_window, plot_formats,
-        plot_dpi, figsize, grid_style, display_plots
-    )
+    if generate_small:
+        small_result = _create_small_input_plot(
+            df, path, param_name, time_unit, all_algorithms,
+            title_prefix, filename_prefix, small_threshold,
+            convert_to_seconds, rolling_window, plot_formats,
+            plot_dpi, figsize, grid_style, display_plots
+        )
 
-    saved_files.extend(small_result[0])
-    if return_figures:
-        all_figures.append(small_result[1])
+        saved_files.extend(small_result[0])
+        if return_figures:
+            all_figures.append(small_result[1])
 
     # Large input plot
-    large_result = _create_large_input_plot(
-        df, path, param_name, time_unit, fast_algorithms,
-        title_prefix, filename_prefix, large_threshold,
-        convert_to_seconds, rolling_window, plot_formats,
-        plot_dpi, figsize, grid_style, display_plots
-    )
+    if generate_large:
+        large_result = _create_large_input_plot(
+            df, path, param_name, time_unit, fast_algorithms,
+            title_prefix, filename_prefix, large_threshold,
+            convert_to_seconds, rolling_window, plot_formats,
+            plot_dpi, figsize, grid_style, display_plots
+        )
 
-    saved_files.extend(large_result[0])
-    if return_figures:
-        all_figures.append(large_result[1])
+        saved_files.extend(large_result[0])
+        if return_figures:
+            all_figures.append(large_result[1])
 
-    # Linear scale plot
-    linear_result = _create_linear_scale_plot(
-        df, path, param_name, time_unit, fast_algorithms,
-        title_prefix, filename_prefix, convert_to_seconds,
-        rolling_window, plot_formats, plot_dpi,
-        figsize, grid_style, display_plots
-    )
+    # Linear scale plot (all values)
+    if generate_linear:
+        linear_result = _create_linear_scale_plot(
+            df, path, param_name, time_unit, fast_algorithms,
+            title_prefix, filename_prefix, convert_to_seconds,
+            rolling_window, plot_formats, plot_dpi,
+            figsize, grid_style, display_plots
+        )
 
-    saved_files.extend(linear_result[0])
-    if return_figures:
-        all_figures.append(linear_result[1])
+        saved_files.extend(linear_result[0])
+        if return_figures:
+            all_figures.append(linear_result[1])
+
+    # Log scale plot (all values)
+    if generate_log:
+        log_result = _create_log_scale_plot(
+            df, path, param_name, time_unit, fast_algorithms,
+            title_prefix, filename_prefix, 0,  # Use 0 threshold to include all values
+            convert_to_seconds, rolling_window, plot_formats,
+            plot_dpi, figsize, grid_style, display_plots
+        )
+
+        saved_files.extend(log_result[0])
+        if return_figures:
+            all_figures.append(log_result[1])
 
     return all_figures if return_figures else None
 
@@ -136,7 +169,8 @@ def _prepare_data_for_plotting(
     base_condition = (
         df[method].notna() &
         (df[method] != "OVERFLOW") &
-        (df[method] != "ERROR")
+        (df[method] != "ERROR") &
+        (df[method] != "NaN")
     )
 
     # Combine with additional condition if provided
@@ -345,6 +379,35 @@ def _create_large_input_plot(
 
     return _save_plot(fig, path, f"{filename_prefix}_fast_log", formats, dpi, display_plot)
 
+def _create_log_scale_plot(
+        df: pd.DataFrame,
+        path: str,
+        param_name: str,
+        time_unit: str,
+        algorithms: List[str],
+        title_prefix: str,
+        filename_prefix: str,
+        threshold: int,
+        convert_to_seconds: bool,
+        rolling_window: int,
+        formats: List[str],
+        dpi: int,
+        figsize: tuple,
+        grid_style: Dict[str, Any],
+        display_plot: bool = False
+) -> Tuple[List[str], plt.Figure]:
+    """Create and save plot with log scale for all inout values."""
+    condition = df[param_name] >= threshold
+    title = f"{title_prefix} Performance (Log Scale)"
+    ylabel = f"Execution Time ({time_unit})"
+
+    fig = _create_plot(
+        df, param_name, algorithms, None, convert_to_seconds,
+        rolling_window, figsize, True, title,
+        f"Input Size ({param_name})", ylabel, grid_style
+    )
+
+    return _save_plot(fig, path, f"{filename_prefix}_log", formats, dpi, display_plot)
 
 def _create_linear_scale_plot(
     df: pd.DataFrame,

@@ -51,7 +51,8 @@ def test_algorithm_performance(
         for name, func in algorithms.items():
             try:
                 result, exec_time = measure_execution_time(func, val, trials=trials)
-                row[name] = "OVERFLOW" if result == "OVERFLOW" else exec_time
+                row[name] = "OVERFLOW" if (result == "OVERFLOW" or (isinstance(result, list) and len(result) == 0)) else exec_time
+
             except Exception as e:
                 if show_progress:
                     print(f"\nError with {name} for {param_name}={val}: {e}")
